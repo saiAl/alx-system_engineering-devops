@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Bash script that displays The content of the current directory
+# in a list format Where only the part of the name after the first dash is displayed
+
+filename=$(find *-* | tr '*-' ' ' | cut -d '-' -f 1,2)
+
+for var in $filename
+do
+	if [[ $(echo "$var" | grep -v '[0-9]') ]]
+	then
+		echo "$var"
+	fi
+done
