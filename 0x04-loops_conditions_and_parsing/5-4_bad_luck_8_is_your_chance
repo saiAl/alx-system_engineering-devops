@@ -4,10 +4,13 @@ count=1
 while [ $count -lt 10 ]
 do
 	count=$((count + 1))
-	if [ $count -eq 9 ]
+	if [ $count -eq 4 ]
 	then
-		echo "Hi"
+		echo "bad luck"
+	elif [ $count -eq 8 ]
+	then
+		echo "good luck"
 	else
 		echo "Best School"
 	fi
-done		
+done
