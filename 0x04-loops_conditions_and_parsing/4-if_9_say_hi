@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# this script displays Best School 10 times
+count=1
+while [ $count -lt 10 ]
+do
+	count=$(($count + 1))
+	if [ $count -eq 9 ]
+	then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+done		
