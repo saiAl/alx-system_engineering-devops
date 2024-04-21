@@ -1,13 +1,12 @@
 # configuration of ssh
 
-file { 'disable password':
-  ensure  => 'present',
-  path    => '/etc/ssh/ssh_config',
-  line    => '    PasswordAuthentication no'
-}
+$content = "
+PasswordAuthentication no
+IdentityFile ~/.ssh/school
+"
 
-file { 'identity file':
+file { 'modify conf file':
   ensure  => 'present',
   path    => '/etc/ssh/ssh_config',
-  line    => '    IdentityFile ~/.ssh/school'
+  content => $content
 }
