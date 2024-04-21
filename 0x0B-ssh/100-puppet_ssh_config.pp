@@ -9,5 +9,5 @@ file { 'disable password':
 file { 'identity file':
   ensure  => 'present',
   path    => '/etc/ssh/ssh_config',
-  line    =>     IdentityFile ~/.ssh/school'
+  line    => '    IdentityFile ~/.ssh/school'
 }
