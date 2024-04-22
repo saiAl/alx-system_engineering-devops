@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that transfers a file from our client to a server
+FILE="$1"
+DIST_IP="$2"
+USR="$3"
+key="$4"
+
+scp -o StrictHostKeyChecking=no -i "$key" "$FILE" "$USR"@"$DIST_IP":~/
