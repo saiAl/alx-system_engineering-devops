@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# configure NGIX to redirecting /redirect_me to another page
+
+
+cat > "/etc/nginx/sites-available/redirect.conf" <<EOL
+server {
+	server_name _;
+	llisten 80;
+	location /redirect_me {
+		return 301 https://example.org;
+	}
+}
+EOL
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/redirect_me
+sudo service nginx restart
