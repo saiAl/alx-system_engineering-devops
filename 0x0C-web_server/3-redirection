@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 # configure NGIX to redirecting /redirect_me to another page
 
-service nginx start
+apt-get -y update
+apt-get -y install nginx
+
+mkdir -p /var/www/html
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+echo "Hello World!" >> /var/www/html/index.html
+sudo service nginx start
 echo "server {
 	server_name _;
 	llisten 80;
