@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# fix thte server
+
+service apache2 restart
