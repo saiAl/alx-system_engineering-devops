@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configure NGIX to redirecting /redirect_me to another page
 
-
+service nginx start
 echo "server {
 	server_name _;
 	llisten 80;
