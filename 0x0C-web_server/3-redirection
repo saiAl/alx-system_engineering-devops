@@ -13,6 +13,6 @@ sudo service nginx start
 path='/etc/nginx/sites-available/default'
 string_to_replace='# pass PHP scripts to FastCGI serve'
 new_string="server { server_name _; llisten 80; root /var/www/html;\nlocation /redirect_me { return 301 https://example.org; } }"
-sed -i "s/$string_to_replace/$new_string/" path
+sed -i "s/$string_to_replace/$new_string/" "$path"
 
 service nginx restart
