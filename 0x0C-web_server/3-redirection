@@ -12,6 +12,14 @@ sudo service nginx start
 echo "server {
 	server_name _;
 	llisten 80;
+	root /var/www/html;
+	
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+	
 	location /redirect_me {
 		return 301 https://example.org;
 	}
