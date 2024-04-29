@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a custom header
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+new_string="\n\tadd_header X-Served-By \$hostname always;\n\n\t# pass PHP scripts to FastCGI server"
+string_to_replace="# pass PHP scripts to FastCGI server";
+path="/etc/nginx/sites-enabled/default";
+sudo sed -i "s/$string_to_replace/$new_string/" "$path";
+
+sudo service nginx restart
