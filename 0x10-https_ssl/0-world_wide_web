@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # script that will display information about subdomains
 
-# awk 'NR > 1{print $1}' records.txt 
 
 subs=("www" "lb-01" "web-01" "web-02")
 
