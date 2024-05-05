@@ -1,3 +1,4 @@
+# install and configure Ngix
 class nginx {
 
   include puppet::nginx
