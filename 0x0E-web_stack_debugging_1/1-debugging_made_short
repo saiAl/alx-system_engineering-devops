@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# fix the server
+sudo apt purge -y nginx
+sudo apt install -y nginx
+sudo service nginx start
