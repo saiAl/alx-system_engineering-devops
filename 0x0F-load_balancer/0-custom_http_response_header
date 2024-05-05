@@ -4,9 +4,28 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-new_string="\n\tadd_header X-Served-By \$hostname always;\n\n\t# pass PHP scripts to FastCGI server"
-string_to_replace="# pass PHP scripts to FastCGI server";
-path="/etc/nginx/sites-enabled/default";
-sudo sed -i "s/$string_to_replace/$new_string/" "$path";
+SERVER_HOSTNAME=$(hostname)
+
+echo "
+server {
+  listen 80 default_server;
+  server_name ${SERVER_HOSTNAME};
+
+  # Add your existing website configuration here
+
+  location / {
+    # Existing website configuration goes here
+    add_header X-Served-By ${SERVER_HOSTNAME};
+  }
+}
+" > /etc/nginx/sites-available/default
+
+# Link the new configuration to be active
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+#new_string="\n\tadd_header X-Served-By \$hostname always;\n\n\t# pass PHP scripts to FastCGI server"
+#string_to_replace="# pass PHP scripts to FastCGI server";
+#path="/etc/nginx/sites-enabled/default";
+#sudo sed -i "s/$string_to_replace/$new_string/" "$path";
 
 sudo service nginx restart
