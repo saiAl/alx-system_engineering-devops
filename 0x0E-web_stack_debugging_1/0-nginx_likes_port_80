@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# fix the server
+
+sudo apt purge -y nginx;
+sudo apt install -y nginx;
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default;
+sudo service nginx start;
