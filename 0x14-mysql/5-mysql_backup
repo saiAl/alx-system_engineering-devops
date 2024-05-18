@@ -1,4 +1,4 @@
-#!/use/bin/env bash
+#!/usr/bin/env bash
 # Create a backup of all databases and archive
 mysqldump -u root -p "$1" --all-databases > backup.sql
 name=$(date '+%d-%m-%Y')
