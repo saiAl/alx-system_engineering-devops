@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""" 0. Gather data from an API """
+"""0. Gather data from an API"""
 import requests
 import sys
 
 
 def fetch(url=None):
-    """ fetch a information from endpoint"""
+    """fetch a information from endpoint"""
     r = requests.get(url)
     return r.json()
 
 
 def main():
-    """ information about employee TODO list progress."""
+    """information about employee TODO list progress."""
     emplyeeId = int(sys.argv[1])
     done = 0
     total = 0
@@ -28,9 +28,9 @@ def main():
                 done += 1
             total += 1
 
-    print(f"Employee {name} is done with tasks({done}/{total}")
+    print(f"Employee {name} is done with tasks({done}/{total}):")
     for x in completed:
         print(f"\t{x}")
 
-
-main()
+if __name__ == "__main__":
+    main()
