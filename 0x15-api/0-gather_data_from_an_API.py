@@ -30,7 +30,8 @@ def main():
 
     print(f"Employee {name} is done with tasks({done}/{total}):")
     for x in completed:
-        print(f"\t{x}")
+        print(f"\t {x}")
+
 
 if __name__ == "__main__":
     main()
