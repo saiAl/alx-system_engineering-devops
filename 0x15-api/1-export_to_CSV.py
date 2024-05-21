@@ -13,18 +13,19 @@ if __name__ == "__main__":
 
     emplyeeId = int(sys.argv[1])
     tasks = fetch(
-            f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}/todos"
+            f"https://jsonplaceholder.typicode.com/users/{emplyeeId}/todos"
             )
     user = fetch(
             f"https://jsonplaceholder.typicode.com/users/{emplyeeId}"
             )
 
+    name = user.get("name").split(' ')[0] 
     with open(f"{emplyeeId}.csv", 'w', newline='') as file:
         data = csv.writer(
                 file, delimiter=',', quoting=csv.QUOTE_ALL
                 )
         for task in tasks:
             data.writerow(
-                    [emplyeeId, user.get("name"),
+                    [emplyeeId, name,
                         task.get("completed"), task.get("title")]
                     )
