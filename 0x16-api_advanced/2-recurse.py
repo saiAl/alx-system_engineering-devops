@@ -30,8 +30,7 @@ def recurse(subreddit, hot_list=[], after=None):
     if after:
         try:
             hot_list.append(children[count]['data']['title'])
-        except:
+        except Exception as e:
             return hot_list
-
         count += 1
         return recurse(subreddit, hot_list, after)
