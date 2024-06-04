@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ 1. Top Ten """
+import requests
 
 
 def top_ten(subreddit):
@@ -10,7 +11,6 @@ def top_ten(subreddit):
         Attributes:
             subreddit (str): The target subreddit
     """
-    import requests
 
     if not isinstance(subreddit, str):
         print("None")
