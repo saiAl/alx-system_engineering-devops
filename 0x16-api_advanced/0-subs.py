@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ 0. How many subs? """
+import requests
 
 
 def number_of_subscribers(subreddit):
@@ -12,7 +13,6 @@ def number_of_subscribers(subreddit):
             returns the number of subscribers on Success
             otherwise return 0.
     """
-    import requests
 
     if not isinstance(subreddit, str):
         return 0
