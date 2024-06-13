@@ -15,8 +15,10 @@ server {
 		proxy_pass http://localhost:5000;
 	}
 	
-	location /airbnb-dynamic/ {
-		proxy_pass http://localhost:5001;
+	
+        location ~ /airbnb-dynamic/number_odd_or_even/(\d+) {
+                rewrite ^/airbnb-dynamic/(\w+)/(\d+) /$1/$2 break;
+                proxy_pass http://localhost:5001;
 	}
 	
 	if ($request_filename ~ redirect_me){
